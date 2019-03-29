@@ -19,6 +19,7 @@ let gambling=-1,history=-1,instructor=-1,language=-1,leadership=-1,navigation=-1
 let techpostech=-1,techpretech=-1,techpsitech=-1,vehicleair=-1,vehiclegrav=-1,vehicleland=-1,vehiclespace=-1,vehiclewater=-1,steward=-1;
 let anyskill=0,proffessionany=0,techany=0,combatany=0,culany=0,any2but=0,vehicleany=0;
 let backgroundpackforce=0,unlucky=0;
+var t= document.createElement('p');  ///////////////////////
 
 
 function setup() {
@@ -103,25 +104,28 @@ function clase(){
     //	printf("WIS ");
     	bestwis=1;
 	} else {bestwis=0;}
-	print(" \n");
+	document.write(" \n");
 //	printf("STR=%d DEX=%d CON=%d WIS=%d INT=%d CHA=%d \n",beststr,bestdex,bestcon,bestwis,bestinte,bestcha); // DEBUUUUUUUG
 
 	/////// LA PARTE DONDE TE ELIJE UNA CLASE ///////
 	if (bestwis==1||bestcon==1)
 	{
-	print("Clase: Psiquico \n");
+	document.write("Clase: Psiquico \n");  
+    linebreak(1);
 	claseelegida=1;
 	}
 	else
 		{	
 		if (bestinte==1||bestcha==1)
-			{print("Clase: Experto \n");
+			{document.write("Clase: Experto \n");
+             linebreak(1);
 			claseelegida=2;
 			}
 		else
 			{
 			if (beststr==1||bestdex==1)
-				{print("Clase: Guerrero \n");
+				{document.write("Clase: Guerrero \n");
+                 linebreak(1);
 				claseelegida=3;
 				}	
 			}
@@ -191,24 +195,28 @@ function characterhp(){
 		rolldado(8); //1d8
 		hp=diceRoll;
 	}
-	print("HP: %d \n",hp);
+	document.write("HP: "+hp+" ");
+    linebreak(1);
 //	printf("%d valor de clase elegida\n",claseelegida); //DEBUUUUUUG
 	return 0;
 }
 
 function salvaciones(){
-	print("Salvaciones: ");
+	document.write("Salvaciones: ");
 	if(claseelegida==1) //Psiquico
 	{
-		print("AB:0 PHYS:13 MENT:12 EVADE:15 TECH:16 LUCK:14\n");
+		document.write("AB:0 PHYS:13 MENT:12 EVADE:15 TECH:16 LUCK:14\n");
+        linebreak(1);
 	}
 	if(claseelegida==2) //Experto
 	{
-		print("AB:0 PHYS:16 MENT:15 EVADE:12 TECH:11 LUCK:14\n");
+		document.write("AB:0 PHYS:16 MENT:15 EVADE:12 TECH:11 LUCK:14\n");
+        linebreak(1);
 	}
 	if(claseelegida==3) //Guerrero
 	{
-		print("AB:1 PHYS:12 MENT:15 EVADE:14 TECH:16 LUCK:13\n");
+		document.write("AB:1 PHYS:12 MENT:15 EVADE:14 TECH:16 LUCK:13\n");
+        linebreak(1);
 	}
 	
 	return 0;
@@ -218,73 +226,87 @@ function subclase(){ //Para elegir Disciplina
 	if (claseelegida==1) 
 	{
 		rolldado(6);
-		print("Disciplina: ");
+		document.write("Disciplina: ");
 		switch(diceRoll){
 			case 1:
-				print("Biopsionics \n");
+				document.write("Biopsionics \n");
+                linebreak(1);
 				break;
 			case 2:
-				print("Metapsiones \n");
+				document.write("Metapsiones \n");
+                linebreak(1);
 				break;
 			case 3:
-				print("Precognition \n");
+				document.write("Precognition \n");
+                linebreak(1);
 				break;
 			case 4:
-				print("Telekinesis \n");
+				document.write("Telekinesis \n");
+                linebreak(1);
 				break;
 			case 5:
-				print("Telepathy \n");
+				document.write("Telepathy \n");
+                linebreak(1);
 				break;
 			case 6:
-				print("Teleportation \n");
+				document.write("Teleportation \n");
+                linebreak(1);
 				break;
 			default:
-				print("ERROR \n");
+				document.write("ERROR \n");
+                linebreak(1);
 				break;
 		}
 	}
 	if (claseelegida==2){
-		print("Class SKill: Once per in-game hour, you can reroll a failed skill check. \n");
+		document.write("Class SKill: Once per in-game hour, you can reroll a failed skill check. \n");
+        linebreak(1);
 	}
 	if (claseelegida==3){
-		print("Class SKill: Once per combat, you may negate a successful attack made against you. \n");	
+		document.write("Class SKill: Once per combat, you may negate a successful attack made against you. \n");
+        linebreak(1);
 	}
 	return 0;
 }
 
 function backgroundpack(){
-	print("BACKGROUND: ");
+	document.write("BACKGROUND: ");
 		rolldado(24);
 		switch(diceRoll){
 		case 1:
-			print("Adventurer \n");
+			document.write("Adventurer \n");
+            linebreak(1);    
 			culworld++;
 			culspacer++;
 			anyskill=anyskill+2;
 			break;
 		case 2:
-			print("Armsman \n");
+			document.write("Armsman \n");
+            linebreak(1);    
 			comprimitiv++;
 			comunarmed++;
 			culworld++;
 			tactics++;
 			break;
 		case 3:
-			print("Astrogators Mate \n");
+			document.write("Astrogators Mate \n");
+            linebreak(1);    
 			culspacer++;
 			navigation++;
 			science++;
 			vehiclespace++;
 			break;
 		case 4:
-			print("Bandit \n");
+			document.write("Bandit \n");
+                linebreak(1);
 			comprimitiv++;
 			culworld++;
 			stealth++;
 			survival++;
 			break;
 		case 5:
-			print("Biotech Crew \n");
+			document.write("Biotech Crew \n");
+                linebreak(1);
 			culspacer++;
 			science++;
 			techastro++;
@@ -292,139 +314,159 @@ function backgroundpack(){
 			backgroundpackforce=1;
 			break;
 		case 6:
-			print("Comm Crew \n");
+			document.write("Comm Crew \n");
+                linebreak(1);
 			computer++;
 			culspacer++;
 			persuade++;
 			techpostech++;
 			break;
 		case 7:
-			print("Con Artist \n");
+			document.write("Con Artist \n");
+                linebreak(1);
 			culcriminal++;
 			culworld++;
 			persuade++;
 			stealth++;
 			break;
 		case 8:
-			print("Deck Crew \n");
+			document.write("Deck Crew \n");
+                linebreak(1);
 			athletics++;
 			comunarmed++;
 			culspacer++;
 			gambling++;
 			break;
 		case 9:
-			print("Engine Crew \n");
+			document.write("Engine Crew \n");
+                linebreak(1);
 			culspacer++;
 			exosuit++;
 			gambling++;
 			techpostech++;
 			break;
 		case 10:
-			print("Gunnery Crew \n");
+			document.write("Gunnery Crew \n");
+                linebreak(1);
 			comgunnery++;
 			culspacer++;
 			computer++;
 			tactics++;
 			break;
 		case 11:
-			print("Hermit \n");
+			document.write("Hermit \n");
+                linebreak(1);
 			culworld++;
 			perception++;
 			survival++;
 			stealth++;
 			break;
 		case 12:
-			print("Noble \n");
+			document.write("Noble \n");
+                linebreak(1);
 			comprimitiv++;
 			culworld++;
 			leadership++;
 			persuade++;
 			break;
 		case 13:
-			print("Peasant \n");
+			document.write("Peasant \n");
+                linebreak(1);
 			culworld++;
 			proffessionany++;
 			steward++;
 			survival++;
 			break;																											
 		case 14:
-			print("Politician \n");
+			document.write("Politician \n");
+                linebreak(1);
 			culworld++;
 			leadership++;
 			persuade++;
 			steward++;
 			break;
 		case 15:
-			print("Priest \n");
+			document.write("Priest \n");
+                linebreak(1);
 			culworld++;
 			leadership++;
 			persuade++;
 			religion++;
 			break;
 		case 16:
-			print("Researcher \n");
+			document.write("Researcher \n");
+                linebreak(1);
 			culworld++;
 			perception++;
 			science++;
 			techany++;
 			break;
 		case 17:
-			print("Scholar \n");
+			document.write("Scholar \n");
+                linebreak(1);
 			culworld++;
 			history++;
 			instructor++;
 			science++;
 			break;
 		case 18:
-			print("Security Crew \n");
+			document.write("Security Crew \n");
+                linebreak(1);
 			combatany++;
 			culspacer++;
 			security++;
 			tactics++;
 			break;
 		case 19:
-			print("Soldier \n");
+			document.write("Soldier \n");
+                linebreak(1);
 			comproject++;
 			comunarmed++;
 			culworld++;
 			tactics++;
 			break;
 		case 20:
-			print("Technician \n");
+			document.write("Technician \n");
+                linebreak(1);
 			culworld++;
 			exosuit++;
 			any2but=any2but+2;
 			break;
 		case 21:
-			print("Transport Specialist \n");
+			document.write("Transport Specialist \n");
+                linebreak(1);
 			comgunnery++;
 			culworld++;
 			navigation++;
 			vehicleany++;
 			break;
 		case 22:
-			print("Tribesman \n");
+			document.write("Tribesman \n");
+                linebreak(1);
 			comprimitiv++;
 			comunarmed++;
 			culworld++;
 			survival++;
 			break;
 		case 23:
-			print("Urchin \n");
+			document.write("Urchin \n");
+                linebreak(1);
 			culworld++;
 			culcriminal++;
 			stealth++;
 			survival++;
 			break;
 		case 24:
-			print("Worker \n");
+			document.write("Worker \n");
+                linebreak(1);
 			culworld++;
 			proffessionany++;
 			vehicleany++;
 			anyskill++;
 			break;
 		default:
-			print("ERROR \n");
+			document.write("ERROR \n");
+                linebreak(1);
 			break;																																													
 		}
 		
@@ -432,67 +474,76 @@ function backgroundpack(){
 }
 
 function trainingpack(){
-	print("TRAINING PACK: ");
+	document.write("TRAINING PACK: ");
 	if (claseelegida==1)
 	{
 		rolldado(8);  //Psychic
 		switch(diceRoll){
 		case 1:
-			print("Adventuring Psychic \n");
+			document.write("Adventuring Psychic \n");
+                linebreak(1);
 			anyskill++;
 			proffessionany++;
 			break;
 		case 2:
-			print("Academy Graduate \n");
+			document.write("Academy Graduate \n");
+                linebreak(1);
 			compsitech++;
 			persuade++;
 			techmedical++;
 			techpsitech++;
 			break;
 		case 3:
-			print("Criminal Mind \n");
+			document.write("Criminal Mind \n");
+                linebreak(1);
 			culcriminal++;
 			persuade++;
 			security++;
 			stealth++;
 			break;
 		case 4:
-			print("Healer \n");
+			document.write("Healer \n");
+                linebreak(1);
 			culany++;
 			perception++;
 			techpsitech++;
 			techmedical++;
 			break;
 		case 5:
-			print("Military Psychic \n");
+			document.write("Military Psychic \n");
+                linebreak(1);
 			combatany++;
 			compsitech++;
 			stealth++;
 			tactics++;
 			break;
 		case 6:
-			print("Psychic Researcher  \n");
+			document.write("Psychic Researcher  \n");
+                linebreak(1);
 			bureaucracy++;
 			history++;
 			science++;
 			techpsitech++;
 			break;
 		case 7:
-			print("Rogue Psychic  \n");
+			document.write("Rogue Psychic  \n");
+                linebreak(1);
 			combatany++;
 			culany++;
 			persuade++;
 			stealth++;
 			break;
 		case 8:
-			print("Tribal Shaman  \n");
+			document.write("Tribal Shaman  \n");
+                linebreak(1);
 			artist++;
 			culany++;
 			persuade++;
 			religion++;
 			break;
 		default:
-			print("ERROR \n");
+			document.write("ERROR \n");
+                linebreak(1);
 			break;																																													
 		}
 	}
@@ -502,12 +553,14 @@ function trainingpack(){
 	rolldado(8); 
 		switch(diceRoll){
 		case 1:
-			print("Adventuring Expert \n");
+			document.write("Adventuring Expert \n");
+                linebreak(1);
 			proffessionany=proffessionany+4;
 			anyskill=anyskill+2;
 			break;
 		case 2:
-			print("Bounty Hunter  \n");
+			document.write("Bounty Hunter  \n");
+                linebreak(1);
 			combatany++;
 			culany++;
 			navigation++;
@@ -518,7 +571,8 @@ function trainingpack(){
 			vehicleany++;
 			break;
 		case 3:
-			print("Criminal   \n");
+			document.write("Criminal   \n");
+                linebreak(1);
 			business++;
 			comprimitiv++;
 			culcriminal++;
@@ -529,7 +583,8 @@ function trainingpack(){
 			stealth++;
 			break;
 		case 4:
-			print("Explorer  \n");
+			document.write("Explorer  \n");
+                linebreak(1);
 			athletics++;
 			combatany++;
 			navigation++;
@@ -539,7 +594,8 @@ function trainingpack(){
 			vehicleany++;
 			break;
 		case 5:
-			print("Pilot  \n");
+			document.write("Pilot  \n");
+                linebreak(1);
 			comgunnery++;
 			culspacer++;
 			exosuit++;
@@ -550,7 +606,8 @@ function trainingpack(){
 			vehiclespace++;
 			break;
 		case 6:
-			print("Preceptor Adept  \n");
+			document.write("Preceptor Adept  \n");
+                linebreak(1);
 			bureaucracy++;
 			culany++;
 			history++;
@@ -560,7 +617,8 @@ function trainingpack(){
 			techpostech++;
 			break;
 		case 7:
-			print("Scientist  \n");
+			document.write("Scientist  \n");
+                linebreak(1);
 			bureaucracy++;
 			culany++;
 			perception++;
@@ -571,7 +629,8 @@ function trainingpack(){
 			vehicleany++;
 			break;
 		case 8:
-			print("Xenoarchaeologist  \n");
+			document.write("Xenoarchaeologist  \n");
+                linebreak(1);
 			combatany++;
 			culany++;
 			history++;
@@ -582,7 +641,8 @@ function trainingpack(){
 			vehicleany++;
 			break;
 		default:
-			print("ERROR \n");
+			document.write("ERROR \n");
+                linebreak(1);
 			break;																																													
 		}		
 	}
@@ -592,12 +652,14 @@ function trainingpack(){
 	rolldado(8); 
 		switch(diceRoll){
 		case 1:
-			print("Adventuring Warrior \n");
+			document.write("Adventuring Warrior \n");
+                linebreak(1);
 			anyskill=anyskill+2;
 			proffessionany=proffessionany+2;
 			break;
 		case 2:
-			print("Assassin  \n");
+			document.write("Assassin  \n");
+                linebreak(1);
 			athletics++;
 			combatany++;
 			culcriminal++;
@@ -606,7 +668,8 @@ function trainingpack(){
 			tactics++;
 			break;
 		case 3:
-			print("Commando    \n");
+			document.write("Commando    \n");
+                linebreak(1);
 			athletics++;
 			culany++;
 			combatany++;
@@ -615,7 +678,8 @@ function trainingpack(){
 			tactics++;
 			break;
 		case 4:
-			print("Exchange Enforcer   \n");
+			document.write("Exchange Enforcer   \n");
+                linebreak(1);
 			business++;
 			combatany++;
 			culany++;
@@ -624,7 +688,8 @@ function trainingpack(){
 			tactics++;
 			break;
 		case 5:
-			print("Ground Forces   \n");
+			document.write("Ground Forces   \n");
+                linebreak(1);
 			athletics++;
 			combatany++;
 			comproject++;
@@ -633,7 +698,8 @@ function trainingpack(){
 			vehicleany++;
 			break;
 		case 6:
-			print("Mercenary   \n");
+			document.write("Mercenary   \n");
+                linebreak(1);
 			business++;
 			combatany++;
 			comproject++;
@@ -642,7 +708,8 @@ function trainingpack(){
 			tactics++;
 			break;
 		case 7:
-			print("Space Marine   \n");
+			document.write("Space Marine   \n");
+                linebreak(1);
 			comenergy++;
 			comprimitiv++;
 			culspacer++;
@@ -651,7 +718,8 @@ function trainingpack(){
 			techastro++;
 			break;
 		case 8:
-			print("Templar   \n");
+			document.write("Templar   \n");
+                linebreak(1);
 			combatany++;
 			culany++;
 			perception++;
@@ -660,7 +728,8 @@ function trainingpack(){
 			tactics++;
 			break;
 		default:
-			print("ERROR \n");
+			document.write("ERROR \n");
+                linebreak(1);
 			break;																																													
 		}		
 	}	
@@ -669,19 +738,23 @@ function trainingpack(){
 }
 
 function startinggearkit(){
-	print("STARTING PACK: ");
+	document.write("STARTING PACK: ");
 	// Lineas para forzar tener mejores medicos
 	if(backgroundpackforce==1) //Biotech Crew
 	{
 		rolldado(3);
 		switch(diceRoll){
 			case 1:
-				print("Biotech Crew \n");
-				print("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+				document.write("Biotech Crew \n");
+                linebreak(1);
+				document.write("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+                linebreak(1);
 				break;
 			case 2:
-				print("Biotech Crew \n");
-				print("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+				document.write("Biotech Crew \n");
+                linebreak(1);
+				document.write("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+                linebreak(1);
 				break;
 			case 3:
 				unlucky=1;
@@ -693,28 +766,40 @@ function startinggearkit(){
 	rolldado(6); 
 		switch(diceRoll){
 		case 1:
-			print("Biotech Crew \n");
-			print("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+			document.write("Biotech Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Bioscanner, Backpack (Lazarus Patch, Medkit, Rations 5) \n");
+            linebreak(1);
 			break;
 		case 2:
-			print("Engine Crew \n");
-			print("*Incluye: Vaccsuit, Toolkit/Postech, Monoblade, Backpack (Glowbugs 2, Powecell Type A 4, Instapanel) \n");
+			document.write("Engine Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Toolkit/Postech, Monoblade, Backpack (Glowbugs 2, Powecell Type A 4, Instapanel) \n");
+            linebreak(1);
 			break;
 		case 3:
-			print("Comm Crew \n");
-			print("*Incluye: Vaccsuit, Dataslab, Translator Torc \n");			
+			document.write("Comm Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Dataslab, Translator Torc \n");	
+            linebreak(1);
 			break;
 		case 4:
-			print("Gunnery Crew \n");
-			print("*Incluye: Vaccsuit, Compad, Binoculars, Grenades 4, Power Cell Type B \n");
+			document.write("Gunnery Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Compad, Binoculars, Grenades 4, Power Cell Type B \n");
+            linebreak(1);
 			break;
 		case 5:
-			print("Deck Crew \n");
-			print("*Incluye: Vaccsuit, Atmofilter, Metatool, Stun Baton, Backpack (Thermal Flare 4, Lazarus Patch, Power Cell Type A 5) \n");
+			document.write("Deck Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Atmofilter, Metatool, Stun Baton, Backpack (Thermal Flare 4, Lazarus Patch, Power Cell Type A 5) \n");
+            linebreak(1);
 			break;
 		case 6:
-			print("Security Crew \n");
-			print("*Incluye: Vaccsuit, Shield, Thermal Pistol, Power Cell Type A 5, PortaBox \n");
+			document.write("Security Crew \n");
+            linebreak(1);
+			document.write("*Incluye: Vaccsuit, Shield, Thermal Pistol, Power Cell Type A 5, PortaBox \n");
+            linebreak(1);
 			break;	
 	}											
 	}
@@ -722,111 +807,113 @@ function startinggearkit(){
 }
 
 function readskills(){
-	print("\n");
-	print("SKILLS: "); // Ejemplo de cada skill
+	document.write("\n");
+    linebreak(1);
+	document.write("SKILLS: "); // Ejemplo de cada skill
 	if(artist>=0)
-	{print("Artist(%d), ",artist);} //
+	{document.write("Artist("+artist+"), ");} //
 	if(athletics>=0)
-	{print("Athletics(%d), ",athletics);} //
+	{document.write("Athletics("+athletics+"), ");} //
 	if(bureaucracy>=0)
-	{print("Bureaucracy(%d), ",bureaucracy);} //
+	{document.write("Bureaucracy("+bureaucracy+"), ");} //
 	if(business>=0)
-	{print("Business(%d), ",business);} //
+	{document.write("Business("+business+"), ");} //
 	if(comenergy>=0)
-	{print("Combat/Energy(%d), ",comenergy);} //
+	{document.write("Combat/Energy("+comenergy+"), ");} //
 	if(comgunnery>=0)
-	{print("Combat/Gunnery(%d), ",comgunnery);} //
+	{document.write("Combat/Gunnery("+comgunnery+"), ");} //
 	if(comprimitiv>=0)
-	{print("Combat/Primitive(%d), ",comprimitiv);} //
+	{document.write("Combat/Primitive("+comprimitiv+"), ");} //
 	if(comproject>=0)
-	{print("Combat/Projectile(%d), ",comproject);} //
+	{document.write("Combat/Projectile("+comproject+"), ");} //
 	if(compsitech>=0)
-	{print("Combat/Psitech(%d), ",compsitech);} //
+	{document.write("Combat/Psitech("+compsitech+"), ");} //
 	if(comunarmed>=0)
-	{print("Combat/Unarmed(%d), ",comunarmed);} //
+	{document.write("Combat/Unarmed("+comunarmed+"), ");} //
 	if(computer>=0)
-	{print("Computers(%d), ",computer);} //
+	{document.write("Computers("+computer+"), ");} //
 	if(culalien>=0)
-	{print("Culture/Alien(%d), ",culalien);} //
+	{document.write("Culture/Alien("+culalien+"), ");} //
 	if(culcriminal>=0)
-	{print("Culture/Criminal(%d), ",culcriminal);}//
+	{document.write("Culture/Criminal("+culcriminal+"), ");}//
 	if(culspacer>=0)
-	{print("Culture/Spacer(%d), ",culspacer);}//
+	{document.write("Culture/Spacer("+culspacer+"), ");}//
 	if(cultraveler>=0)
-	{print("Culture/Traveler(%d), ",cultraveler);}//
+	{document.write("Culture/Traveler("+cultraveler+"), ");}//
 	if(culworld>=0)
-	{print("Culture/World(%d), ",culworld);}//
+	{document.write("Culture/World("+culworld+"), ");}//
 	if(exosuit>=0)
-	{print("Exosuit(%d), ",exosuit);}//
+	{document.write("Exosuit("+exosuit+"), ");}//
 	if(gambling>=0)
-	{print("Gambling(%d), ",gambling);}//
+	{document.write("Gambling("+gambling+"), ");}//
 	if(history>=0)
-	{print("History(%d), ",history);} //
+	{document.write("History("+history+"), ");} //
 	if(instructor>=0)
-	{print("Instructor(%d), ",instructor);} //
+	{document.write("Instructor("+instructor+"), ");} //
 	if(language>=0)
-	{print("Language(%d), ",language);} //
+	{document.write("Language("+language+"), ");} //
 	if(leadership>=0)
-	{print("Leadership(%d), ",leadership);} //
+	{document.write("Leadership("+leadership+"), ");} //
 	if(navigation>=0)
-	{print("Navigation(%d), ",navigation);} //
+	{document.write("Navigation("+navigation+"), ");} //
 	if(perception>=0)
-	{print("Perception(%d), ",perception);} //
+	{document.write("Perception("+perception+"), ");} //
 	if(persuade>=0)
-	{print("Persuade(%d), ",persuade);} //
+	{document.write("Persuade("+persuade+"), ");} //
 	if(profession>=0)
-	{print("Profession(%d), ",profession);} //
+	{document.write("Profession("+profession+"), ");} //
 	if(religion>=0)
-	{print("Religion(%d), ",religion);} //
+	{document.write("Religion("+religion+"), ");} //
 	if(science>=0)
-	{print("Science(%d), ",science);} //
+	{document.write("Science("+science+"), ");} //
 	if(security>=0)
-	{print("Security(%d), ",security);} //
+	{document.write("Security("+security+"), ");} //
 	if(stealth>=0)
-	{print("Stealth(%d), ",stealth);} //
+	{document.write("Stealth("+stealth+"), ");} //
 	if(survival>=0)
-	{print("Survival(%d), ",survival);} //
+	{document.write("Survival("+survival+"), ");} //
 	if(tactics>=0)
-	{print("Tactics(%d), ",tactics);} //
+	{document.write("Tactics("+tactics+"), ");} //
 	if(techastro>=0)
-	{print("Tech/Astronautics(%d), ",techastro);} //
+	{document.write("Tech/Astronautics("+techastro+"), ");} //
 	if(techmaltech>=0)
-	{print("Tech/Maltech(%d), ",techmaltech);} //
+	{document.write("Tech/Maltech("+techmaltech+"), ");} //
 	if(techmedical>=0)
-	{print("Tech/Medical(%d), ",techmedical);} //
+	{document.write("Tech/Medical("+techmedical+"), ");} //
 	if(techpostech>=0)
-	{print("Tech/Postech(%d), ",techpostech);} //
+	{document.write("Tech/Postech("+techpostech+"), ");} //
 	if(techpretech>=0)
-	{print("Tech/Pretech(%d), ",techpretech);} //
+	{document.write("Tech/Pretech("+techpretech+"), ");} //
 	if(techpsitech>=0)
-	{print("Tech/Psitech(%d), ",techpsitech);} //
+	{document.write("Tech/Psitech("+techpsitech+"), ");} //
 	if(vehicleair>=0)
-	{print("Vehicle/Air(%d), ",vehicleair);} //
+	{document.write("Vehicle/Air("+vehicleair+"), ");} //
 	if(vehiclegrav>=0)
-	{print("Vehicle/Grav(%d), ",vehiclegrav);} //
+	{document.write("Vehicle/Grav("+vehiclegrav+"), ");} //
 	if(vehicleland>=0)
-	{print("Vehicle/Land(%d), ",vehicleland);} //
+	{document.write("Vehicle/Land("+vehicleland+"), ");} //
 	if(vehiclespace>=0)
-	{print("Vehicle/Space(%d), ",vehiclespace);} //
+	{document.write("Vehicle/Space("+vehiclespace+"), ");} //
 	if(vehiclewater>=0)
-	{print("Vehicle/Water(%d), ",vehiclewater);} //
+	{document.write("Vehicle/Water("+vehiclewater+"), ");} //
 	if(steward>=0)
-	{print("Steward(%d), ",steward);} //
+	{document.write("Steward("+steward+"), ");} //
 	if(anyskill>=1)
-	{print("Any Skill x%d, ",anyskill);} //
+	{document.write("Any Skill x"+anyskill+", ");} //
 	if(proffessionany>=1)
-	{print("Any Proffesion Skillx%d, ",proffessionany);} //
+	{document.write("Any Proffesion Skillx"+proffessionany+", ");} //
 	if(techany>=1)
-	{print("Tech/Any x%d, ",techany);} //
+	{document.write("Tech/Any x"+techany+", ");} //
 	if(combatany>=1)
-	{print("Combat/Anyx%d, ",combatany);} //
+	{document.write("Combat/Anyx"+combatany+", ");} //
 	if(culany>=1)
-	{print("Culture/Any x%d, ",culany);} //
+	{document.write("Culture/Any x"+culany+", ");} //
 	if(any2but>=1)
-	{print("Any skill except Maltech or Psitech x%d, ",any2but);} //
+	{document.write("Any skill except Maltech or Psitech x"+any2but+", ");} //
 	if(vehicleany>=1)
-	{print("Vehicle/Any x%d, ",vehicleany);} //
-	print("\n"); // para que pase bien a la linea que sigue
+	{document.write("Vehicle/Any x"+vehicleany+", ");} //
+	document.write("\n"); // para que pase bien a la linea que sigue
+     linebreak(1);
 	return 0;
 }
 
